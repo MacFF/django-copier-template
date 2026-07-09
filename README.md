@@ -1,6 +1,6 @@
-# Ntail Django Copier Template
+# Django Copier Template
 
-Welcome to the Ntail Django project template! We use [Copier](https://copier.readthedocs.io/) to manage this boilerplate. Copier makes it super easy to scaffold a fresh Django project and, more importantly, keeps your project updated whenever we make changes to this upstream template.
+Welcome to the Django project template! We use [Copier](https://copier.readthedocs.io/) to manage this boilerplate. Copier makes it super easy to scaffold a fresh Django project and, more importantly, keeps your project updated whenever we make changes to this upstream template.
 
 This guide will walk you through generating a new project from scratch.
 
