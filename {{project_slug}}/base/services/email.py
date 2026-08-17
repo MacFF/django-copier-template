@@ -28,8 +28,7 @@ class EmailService:
         hashed_id = encode_user_id(user.pk)
         token = default_token_generator.make_token(user)
 
-        # subject = "เปลี่ยนนหัสผ่านของคุณสำหรับระบบกรมทางหลวงชนบท"
-        subject = "Change your password for the Department of Rural Roads system."
+        subject = "Change your password for ....... system."
         template_name = "email/reset_password.html"
         context = {
             "reset_password_url": f"{settings.FRONTEND_URL_SET_PASSWORD}/set-password/{hashed_id}/{token}/",

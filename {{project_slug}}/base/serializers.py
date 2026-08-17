@@ -121,25 +121,6 @@ class UserBaseSerializer(serializers.ModelSerializer):
         return user.get_full_name()
 
 
-# class BaseFileUploadSerializer(serializers.Serializer):
-#     title = serializers.CharField(required=True)
-#     path = serializers.CharField(required=True)
-#     url = serializers.CharField(required=False)
-#     type = serializers.CharField(required=True, allow_blank=True)
-
-#     def to_internal_value(self, data):
-#         data = super().to_internal_value(data)
-#         temp_storage = TemporaryStorage()
-#         file = temp_storage.get_file(data["path"], data["title"])
-
-#         if isinstance(file, Exception):
-#             raise serializers.ValidationError({"message": f"{file}"})
-
-#         data = {"file": file, "content_type": data["type"], "title": data["title"]}
-
-#         return data
-
-
 class TitleRepresentSerializer(serializers.Serializer):
     def __init__(self, **kwargs):
         kwargs["read_only"] = True
@@ -150,6 +131,7 @@ class TitleRepresentSerializer(serializers.Serializer):
 
 
 class BaseModelSerializer(WritableNestedModelSerializer):
+    serializer_choice_field = ChoiceDisplayField
     created_by = serializers.HiddenField(default=serializers.CreateOnlyDefault(serializers.CurrentUserDefault()))
     updated_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
